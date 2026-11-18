@@ -7,7 +7,7 @@ interface Props {
 }
 
 export default function WhatsAppTypebotWidget({
-  whatsappNumber = '5511999999999', // Substituível
+  whatsappNumber = '819081860693',
   typebotUrl = '',
   defaultMessage = 'Olá! Gostaria de entender como a SolBotz pode automatizar e otimizar os processos da minha empresa.',
 }: Props) {
