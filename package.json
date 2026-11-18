@@ -10,10 +10,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "blog:agent": "node scripts/blog-agent.mjs",
-    "blog:auto": "node scripts/blog-agent.mjs --auto",
-    "blog:new": "node scripts/blog-agent.mjs --topic",
-    "blog:list": "node scripts/blog-agent.mjs --list"
+    "blog:agent": "node scripts/blog-agent.js",
+    "blog:auto": "node scripts/blog-agent.js --auto",
+    "blog:new": "node scripts/blog-agent.js --topic",
+    "blog:list": "node scripts/blog-agent.js --list"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.9",

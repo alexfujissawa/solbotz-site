@@ -1,0 +1,44 @@
+name: Publicador Automático do Blog (Seg e Qui - 06h Japão)
+
+on:
+  schedule:
+    # 06:00 da manhã no Japão (JST / UTC+9) nas Segundas e Quintas-feiras
+    # Equivale a 21:00 UTC nos Domingos e Quartas-feiras
+    - cron: '0 21 * * 0,3'
+  workflow_dispatch: # Permite testar clicando em "Run workflow" no GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  publicar-artigo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Clonar repositório
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurar ambiente Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: 📦 Instalar dependências
+        run: npm ci
+
+      - name: 🤖 Executar Agente de Conteúdo SolBotz
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node scripts/blog-agent.js --auto
+
+      - name: 🚀 Commit e Push do Novo Artigo para a Vercel
+        run: |
+          git config --global user.name "Equipe SolBotz"
+          git config --global user.email "bot@solbotz.com"
+          git add src/content/blog/
+          if git diff --staged --quiet; then
+            echo "Nenhum novo post pendente."
+          else
+            git commit -m "chore(blog): publicação agendada automática (Seg/Qui)"
+            git push origin main
+          fi
