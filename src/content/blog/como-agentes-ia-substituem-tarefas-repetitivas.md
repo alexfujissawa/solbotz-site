@@ -6,7 +6,7 @@ author: "Alex Ferreira | SolBotz"
 category: "Automação & IA"
 tags: ["Agentes de IA", "Eficiência Operacional", "Automação", "Produtividade"]
 coverImage: "/solbotz.jpeg"
-readTime: "6 min de leitura"
+readTime: "4 min de leitura"
 featured: true
 ---
 

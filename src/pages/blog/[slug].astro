@@ -31,6 +31,8 @@ const relatedPosts = allPosts
 <Layout 
   title={`${post.data.title} | Blog SolBotz`}
   description={post.data.description}
+  type="article"
+  publishDate={post.data.pubDate.toISOString()}
 >
   <BlogHeader active="blog" />
 

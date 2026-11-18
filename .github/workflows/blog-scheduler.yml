@@ -31,14 +31,17 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: node scripts/blog-agent.js --auto
 
+      - name: 🔍 Auditoria e Correção Automática (SEO, Sitemap, Links)
+        run: node scripts/auto-audit-fix.mjs
+
       - name: 🚀 Commit e Push do Novo Artigo para a Vercel
         run: |
           git config --global user.name "Equipe SolBotz"
           git config --global user.email "bot@solbotz.com"
-          git add src/content/blog/
+          git add src/content/blog/ public/sitemap.xml
           if git diff --staged --quiet; then
             echo "Nenhum novo post pendente."
           else
-            git commit -m "chore(blog): publicação agendada automática (Seg/Qui)"
+            git commit -m "chore(blog): publicação agendada e auto-correções automáticas (Seg/Qui)"
             git push origin main
           fi

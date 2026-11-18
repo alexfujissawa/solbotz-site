@@ -6,7 +6,7 @@ author: "Alex Ferreira | SolBotz"
 category: "Automação & IA"
 tags: ["Automação","IA"]
 coverImage: "/solbotz.jpeg"
-readTime: "6 min de leitura"
+readTime: "3 min de leitura"
 featured: false
 ---
 

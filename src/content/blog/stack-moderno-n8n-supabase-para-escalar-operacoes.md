@@ -6,7 +6,7 @@ author: "Alex Ferreira | SolBotz"
 category: "Cases & Estratégia"
 tags: ["n8n", "Supabase", "Arquitetura", "APIs", "Open Source"]
 coverImage: "/solbotz.jpeg"
-readTime: "7 min de leitura"
+readTime: "3 min de leitura"
 featured: false
 ---
 

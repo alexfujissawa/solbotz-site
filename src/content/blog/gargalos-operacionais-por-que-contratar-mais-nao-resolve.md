@@ -6,7 +6,7 @@ author: "Alex Ferreira | SolBotz"
 category: "Eficiência Operacional"
 tags: ["Gestão Operacional", "Custos", "Processos", "Escalabilidade"]
 coverImage: "/solbotz.jpeg"
-readTime: "5 min de leitura"
+readTime: "3 min de leitura"
 featured: false
 ---
 
