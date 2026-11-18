@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import WhatsAppTypebotWidget from '../components/WhatsAppTypebotWidget';
 
 interface Props {
   title?: string;
@@ -88,6 +89,9 @@ const fullImageURL = new URL(image, 'https://www.solbotz.com.br').href;
     </div>
 
     <slot />
+
+    <!-- Widget Flutuante WhatsApp / Typebot -->
+    <WhatsAppTypebotWidget client:idle />
   </body>
 </html>
 
