@@ -9,7 +9,7 @@ interface Props {
 export default function WhatsAppTypebotWidget({
   whatsappNumber = '819081860693',
   typebotUrl = '',
-  defaultMessage = 'Olá! Gostaria de entender como a SolBotz pode automatizar e otimizar os processos da minha empresa.',
+  defaultMessage = 'Olá! Na SolBotz, vocês aplicam IA e automação para eliminar gargalos e devolver tempo e lucro para o empresário. Gostaria de entender: como vocês podem automatizar e otimizar os processos da minha empresa hoje?',
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -55,9 +55,14 @@ export default function WhatsAppTypebotWidget({
             </button>
           </div>
 
-          <p className="text-xs text-gray-300 mb-4 leading-relaxed font-light">
-            Olá! Sou o assistente inteligente da SolBotz. Posso tirar dúvidas sobre nossos fluxos de automação ou agendar o seu diagnóstico operacional.
-          </p>
+          <div className="text-xs text-gray-300 mb-4 leading-relaxed font-light space-y-2">
+            <p>
+              Na <strong className="text-white font-medium">SolBotz</strong>, aplicamos IA e automação para criar sistemas que atendem clientes, gerenciam processos e resolvem gargalos operacionais 24 horas por dia em piloto automático. Basicamente, devolvemos tempo e lucro para o empresário.
+            </p>
+            <p className="text-emerald-400 font-medium">
+              Qual é o maior gargalo ou processo que você gostaria de destravar hoje?
+            </p>
+          </div>
 
           <div className="space-y-2">
             <a
