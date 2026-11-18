@@ -19,6 +19,7 @@ interface FormData {
   phone: string;
   company: string;
   challenge: string;
+  description: string;
 }
 
 export default function ContactForm() {
@@ -28,12 +29,13 @@ export default function ContactForm() {
     phone: '',
     company: '',
     challenge: DROPDOWN_OPTIONS[0],
+    description: '',
   });
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -59,6 +61,7 @@ export default function ContactForm() {
         phone: formData.phone.trim(),
         company: formData.company.trim() || null,
         challenge: formData.challenge,
+        description: formData.description.trim() || null,
         created_at: submittedAt,
       };
 
@@ -75,9 +78,10 @@ export default function ContactForm() {
             _captcha: 'false',
             Nome: leadPayload.name,
             Email: leadPayload.email,
-            WhatsApp: leadPayload.phone,
+            WhatsApp_Telefone: leadPayload.phone,
             Empresa: leadPayload.company || 'Não informada',
             Maior_Gargalo_Operacional: leadPayload.challenge,
+            Descricao_Necessidade: leadPayload.description || 'Não detalhada',
             Data_Envio: submittedAt,
           }),
         }),
@@ -230,7 +234,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <label className="block text-xs font-medium uppercase tracking-wider text-gray-300 mb-2">
-                    WhatsApp / Telefone <span className="text-blue-400">*</span>
+                    WhatsApp / Telefone (Brasil ou Japão) <span className="text-blue-400">*</span>
                   </label>
                   <input
                     type="tel"
@@ -238,7 +242,7 @@ export default function ContactForm() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="(11) 98765-4321"
+                    placeholder="(11) 98765-4321 ou 090-8186-0693"
                     disabled={status === 'loading'}
                     className="w-full px-4 py-3.5 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm backdrop-blur-md"
                   />
@@ -286,6 +290,22 @@ export default function ContactForm() {
                     </svg>
                   </div>
                 </div>
+              </div>
+
+              {/* Caixa Retangular Longa para Descrever a Necessidade do Cliente */}
+              <div>
+                <label className="block text-xs font-medium uppercase tracking-wider text-gray-300 mb-2">
+                  Descreva a sua necessidade ou cenário atual <span className="text-gray-500 font-normal">(Opcional)</span>
+                </label>
+                <textarea
+                  name="description"
+                  rows={4}
+                  value={formData.description}
+                  onChange={handleChange}
+                  placeholder="Conte com detalhes o que sua equipe faz manualmente, os sistemas que utilizam e qual processo você gostaria de automatizar..."
+                  disabled={status === 'loading'}
+                  className="w-full px-4 py-3.5 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm backdrop-blur-md resize-y leading-relaxed"
+                />
               </div>
 
               {/* Mensagem de Erro se houver */}

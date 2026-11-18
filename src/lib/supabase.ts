@@ -29,5 +29,6 @@ export interface Lead {
   phone: string;
   company?: string;
   challenge?: string;
+  description?: string;
   created_at?: string;
 }
