@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+/* Ambient glow effects */
+.glow-blue {
+  box-shadow: 0 0 50px -10px rgba(59, 130, 246, 0.3);
+}
+
+.glow-blue-lg {
+  box-shadow: 0 0 80px -15px rgba(59, 130, 246, 0.45);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 50px -10px rgba(6, 182, 212, 0.3);
+}
+
+/* Ambient background pattern */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Blog article typography */
+.prose-solbotz {
+  color: #d1d5db;
+  line-height: 1.8;
+  font-size: 1.125rem;
+}
+.prose-solbotz h2 {
+  color: #ffffff;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+.prose-solbotz h3 {
+  color: #f3f4f6;
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-solbotz p {
+  margin-bottom: 1.5rem;
+}
+.prose-solbotz ul, .prose-solbotz ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+.prose-solbotz ul {
+  list-style-type: disc;
+}
+.prose-solbotz ol {
+  list-style-type: decimal;
+}
+.prose-solbotz li {
+  margin-bottom: 0.5rem;
+}
+.prose-solbotz strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+.prose-solbotz a {
+  color: #60a5fa;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+.prose-solbotz a:hover {
+  color: #93c5fd;
+}
+.prose-solbotz blockquote {
+  border-left: 3px solid #3b82f6;
+  background: rgba(59, 130, 246, 0.06);
+  padding: 1rem 1.25rem;
+  margin: 1.75rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: italic;
+  color: #e5e7eb;
+}
+.prose-solbotz pre {
+  background: #0d0f14;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.75rem 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.prose-solbotz code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+.prose-solbotz :not(pre) > code {
+  background: rgba(255, 255, 255, 0.08);
+  color: #93c5fd;
+  padding: 0.2rem 0.45rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
+.prose-solbotz hr {
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 2.5rem 0;
+}
+.prose-solbotz table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+}
+.prose-solbotz th, .prose-solbotz td {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+.prose-solbotz th {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-weight: 600;
+}

@@ -1,0 +1,41 @@
+name: Publicação Automática do Blog SolBotz
+
+on:
+  schedule:
+    # Executa toda Segunda e Quinta às 06:00 JST (Horário do Japão - 21:00 UTC)
+    - cron: '0 21 * * 0,3'
+  workflow_dispatch: # Permite disparar manualmente pelo botão no GitHub se desejar
+
+jobs:
+  publish-post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Executar Agente de Blog ("Faz Tudo")
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          npm run blog:auto
+
+      - name: Commitar e Publicar Novo Artigo
+        run: |
+          git config --global user.name "SolBotz Blog Bot"
+          git config --global user.email "bot@solbotz.com"
+          git add src/content/blog/
+          if git diff --staged --quiet; then
+            echo "Nenhum novo artigo gerado."
+          else
+            git commit -m "chore(blog): novo artigo publicado automaticamente [skip ci]"
+            git push
+          fi

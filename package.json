@@ -9,9 +9,22 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "blog:agent": "node scripts/blog-agent.mjs",
+    "blog:auto": "node scripts/blog-agent.mjs --auto",
+    "blog:new": "node scripts/blog-agent.mjs --topic",
+    "blog:list": "node scripts/blog-agent.mjs --list"
   },
   "dependencies": {
-    "astro": "^7.4.12"
+    "@astrojs/react": "^7.1.9",
+    "@supabase/supabase-js": "^2.119.0",
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "astro": "^7.4.12",
+    "framer-motion": "^14.14.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwindcss": "^4.3.5"
   }
 }
