@@ -242,7 +242,7 @@ export default function ContactForm() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="(11) 98765-4321 ou 090-8186-0693"
+                    placeholder="(11) 99999-9999 ou 090-9999-9999"
                     disabled={status === 'loading'}
                     className="w-full px-4 py-3.5 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm backdrop-blur-md"
                   />
