@@ -62,7 +62,7 @@ const blogSlugs = fs.existsSync(BLOG_DIR)
   ? fs.readdirSync(BLOG_DIR).filter(f => f.endsWith('.md')).map(f => f.replace('.md', ''))
   : [];
 
-const today = new Date().toISOString().split('T')[0];
+const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo' }).format(new Date());
 
 const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

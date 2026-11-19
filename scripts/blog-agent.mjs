@@ -181,9 +181,13 @@ async function generateWithOpenAI(prompt, apiKey) {
   return data?.choices?.[0]?.message?.content;
 }
 
+function getTodayJST() {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo' }).format(new Date());
+}
+
 // Fallback de alta qualidade caso não haja chave de API conectada
 function generateStructuredFallback(topic, category = 'Automação & IA', tags = ['Automação', 'Eficiência Operacional', 'IA']) {
-  const today = new Date().toISOString().split('T')[0];
+  const today = getTodayJST();
   const readTime = '6 min de leitura';
 
   return `---
@@ -253,7 +257,7 @@ ENTRADA (Demanda/Lead/Evento)
 
 // Cria o prompt para LLM gerar o artigo completo
 function buildPrompt(topic, category, tags) {
-  const today = new Date().toISOString().split('T')[0];
+  const today = getTodayJST();
 
   return `Você é o estrategista chefe de automação e engenharia operacional da SolBotz (consultoria de alta performance que elimina gargalos, acelera o tempo de resposta e protege a margem de empresas médias usando IA e automação inteligente).
 

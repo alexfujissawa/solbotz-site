@@ -179,8 +179,12 @@ function calcularTempoLeitura(texto) {
   return `${minutos} min de leitura`;
 }
 
+function obterDataHojeJST() {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo' }).format(new Date());
+}
+
 function gerarPostMarkdown(tema) {
-  const hoje = new Date().toISOString().split('T')[0];
+  const hoje = obterDataHojeJST();
   const slug = slugify(tema.titulo);
 
   let corpoArtigo = `Em um cenário corporativo cada vez mais dinâmico, **a eficiência operacional e a automação de processos** deixaram de ser meros diferenciais técnicos para se tornarem o alicerce fundamental de sustentabilidade e lucro de empresas médias.\n\n`;

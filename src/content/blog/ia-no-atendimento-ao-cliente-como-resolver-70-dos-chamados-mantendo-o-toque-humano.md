@@ -1,7 +1,7 @@
 ---
 title: "IA no Atendimento ao Cliente: Como Resolver 70% dos Chamados Mantendo o Toque Humano"
 description: "Diga adeus aos chatbots de menu numérico engessados. Veja como agentes cognitivos compreendem a linguagem natural e resolvem problemas de verdade."
-pubDate: 2026-11-18
+pubDate: 2026-11-19
 author: "Alex Ferreira | SolBotz"
 category: "Automação & IA"
 tags: ["Atendimento","Suporte","Satisfação","Chatbots","Helpdesk"]
